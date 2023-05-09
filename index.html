@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ravi bawa game</title>
+    <style>
+        *{
+            font-family: Bradley Hand, cursive;
+            text-align: center;
+        }
+        img{
+          width: 140px;  
+          height: 180px;
+          margin: auto;
+          border-radius: 5px;
+        }
+
+        .flex{
+      display: flex;
+     justify-content: space-evenly;
+     gap: 20px;
+        }
+
+        button{
+            width: 150px;
+  height: 60px;
+  cursor: pointer;
+  border: 1px solid #c6cbd1;
+  outline: none;
+  /* transition: 1s ease-in-out; */
+  color: white;
+        }
+
+        button:hover {
+  transition: 0.5s ease-in-out;
+  background: #33475b;
+}
+
+        .btn-wrap,.whole-wrap{
+            margin-top: 50px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .btn-wrap{
+            justify-content: space-evenly;
+        }
+
+        .btn-stop{
+           background-color: rgb(245, 83, 83);
+        }
+
+        .btn-start{
+            background-color: rgb(56, 173, 56)
+        }
+        h4{
+            text-align: center;
+            /* font-style: italic; */
+            color: #33475b;
+        }
+    </style>
+</head>
+    <body>
+        <br>
+        <br>
+        <br>
+        <h4>'Time changes but some pose never &#128526;'</h4>
+        <p>Just Ravi Bawa game <br> "match the image by clicking stop"</p>
+        <div class="whole-wrap">
+        <div class="flex">
+        <div id="container">
+            <img src="https://scontent.fgau3-3.fna.fbcdn.net/v/t31.18172-8/15972336_1164382117014132_2030678797820229941_o.jpg?_nc_cat=101&ccb=1-7&_nc_sid=730e14&_nc_ohc=E2710urDuXIAX-RIFTK&_nc_ht=scontent.fgau3-3.fna&oh=00_AfCyAlx_Uzp09SLanD821NKprbKDUGXZrlowNBiuFW1vOw&oe=6481D9F3" alt="">  
+        </div>
+        
+        <img src="https://scontent.fgau3-1.fna.fbcdn.net/v/t31.18172-8/19390559_1322530944532581_929645144229633082_o.jpg?_nc_cat=109&ccb=1-7&_nc_sid=730e14&_nc_ohc=QUAl_5qKuM4AX9jnVNN&_nc_ht=scontent.fgau3-1.fna&oh=00_AfBWWMnGqFUiNKQIjUEdaD9Ic9hg2b2hUq5wWDLF5i37hA&oe=6481EB88" alt="">
+     
+    </div>
+</div>
+    <div class="btn-wrap">
+    <button onclick="stop()" class="btn-stop">STOP IMG</button>
+    <button onclick="refresh()" class="btn-start">START AGAIN</button>
+    </div>
+    <p>Have fun &#128516;</p>
+        <script>
+            let images = ["https://scontent.fgau3-2.fna.fbcdn.net/v/t1.18169-9/21740313_1395361453916196_1171235057547370775_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=84a396&_nc_ohc=MYLm-O45fLEAX90BsH9&_nc_ht=scontent.fgau3-2.fna&oh=00_AfBinkKGLcueDELLLgTj9okdHYmk_g32Coh5coASfCPk8A&oe=6481C790","https://scontent.fgau3-1.fna.fbcdn.net/v/t31.18172-8/19390559_1322530944532581_929645144229633082_o.jpg?_nc_cat=109&ccb=1-7&_nc_sid=730e14&_nc_ohc=QUAl_5qKuM4AX9jnVNN&_nc_ht=scontent.fgau3-1.fna&oh=00_AfBWWMnGqFUiNKQIjUEdaD9Ic9hg2b2hUq5wWDLF5i37hA&oe=6481EB88","https://scontent.fgau3-2.fna.fbcdn.net/v/t31.18172-8/17434924_1223214001130943_8655008509163246980_o.jpg?_nc_cat=111&ccb=1-7&_nc_sid=8bfeb9&_nc_ohc=MXcWS6PgMmwAX9sGjlG&_nc_ht=scontent.fgau3-2.fna&oh=00_AfBVZrwDlUyXbfeL5bIcsXgTY0oaSOpGrxSQqfDj8viJ-Q&oe=6481C0B8","https://scontent.fgau3-3.fna.fbcdn.net/v/t31.18172-8/15972336_1164382117014132_2030678797820229941_o.jpg?_nc_cat=101&ccb=1-7&_nc_sid=730e14&_nc_ohc=E2710urDuXIAX-RIFTK&_nc_ht=scontent.fgau3-3.fna&oh=00_AfCyAlx_Uzp09SLanD821NKprbKDUGXZrlowNBiuFW1vOw&oe=6481D9F3"]
+    
+            let display = document.getElementById("container")
+    
+            let counter = 0;
+            let interval;
+            function startslideshow(){
+                
+               interval =  setInterval(function(){
+                display.innerHTML = ""
+                let img = document.createElement('img');
+    
+               img.src = images[counter];
+               counter+=1
+    
+               if(counter == images.length){
+                counter = 0;
+               }
+                display.innerHTML = ""
+             display.append(img)
+    
+            },200)
+            }
+    
+            startslideshow()
+            var elementStop = document.getElementsByClassName("btn-stop");
+            var elementStart = document.getElementsByClassName("btn-start")
+      function stop(){
+        clearInterval(interval)
+      }
+           
+      function refresh(){
+        window.location.reload()
+      }
+        </script>
+</body>
+</html>
